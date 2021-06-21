@@ -19,7 +19,6 @@ class AuthController {
       successRedirect: '/',
       failureRedirect: '/auth',
       failureFlash: true,
-      passReqToCallback: true,
     })(req, res, next);
   }
 

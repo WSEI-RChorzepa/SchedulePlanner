@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     global: path.join(__dirname, '../global.ts'),
     main: [path.join(__dirname, '../scss/layouts/main.scss')],
-    signin: [path.join(__dirname, '../scss/layouts/signin.scss')],
+    signin: [path.join(__dirname, '../scripts/signin/')],
     signup: [path.join(__dirname, '../scss/layouts/signup.scss')],
   },
   output: {

@@ -12,7 +12,15 @@ const localStrategy = () => {
       async (email: string, password: string, done) => {
         try {
           const user = await UserService.getByEmail(email);
+
           if (user) {
+            const match = await UserService.verifyPassword(user._id, password);
+
+            if (!match) {
+              done(null, false, { message: 'Invalid password' });
+              return;
+            }
+
             done(null, user);
           } else {
             done(null, false, { message: `User with email address: ${email} does not exist.` });

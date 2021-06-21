@@ -15,9 +15,6 @@ function validate(schema: AnySchema, redirect?: string) {
         });
       } catch (error) {
         req.flash('error', error.errors);
-
-        console.log(error);
-
         return redirect ? res.redirect(redirect) : res.redirect(req.url);
       }
 

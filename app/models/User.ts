@@ -6,7 +6,7 @@ interface IContact {
   phone: string;
 }
 
-export default interface IUser extends Document {
+export default interface IUser {
   firstName: string;
   lastName: string;
   contact: IContact;

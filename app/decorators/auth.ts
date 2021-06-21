@@ -9,7 +9,7 @@ function auth() {
       let res = args[1] as Response;
 
       if (!req.user) {
-        res.redirect('/auth');
+        return res.redirect('/signin');
       }
 
       original.apply(this, args);
