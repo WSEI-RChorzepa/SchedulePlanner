@@ -1,25 +1,41 @@
 import express from 'express';
-import exphbs from 'express-handlebars';
-import path from 'path';
+import flas from 'express-flash';
 import morgan from 'morgan';
+import coockieParser from 'cookie-parser';
+import session from 'express-session';
 import chalk from 'chalk';
-import config from './_config/config';
-import HomeRoutes from './routes/home.routes';
+import config from './config';
+import middleware from './middlewares';
+import mongoDbConnect from './db/connection';
 
-const start = () => {
+const start = async () => {
   const app = express();
 
   app.use(morgan('dev'));
-  app.use(express.static(path.join(__dirname, 'bundles')));
-  app.set('views', path.join(__dirname, 'views'));
-  app.engine('handlebars', exphbs());
-  app.set('view engine', 'handlebars');
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
+  app.use(coockieParser());
+  app.use(
+    session({
+      secret: config.sessionSecret,
+      resave: true,
+      saveUninitialized: true,
+    }),
+  );
 
-  app.use('/', HomeRoutes);
+  app.use(flas());
+  middleware.passport(app);
+  middleware.handlebars(app);
+  middleware.routes(app);
 
-  app.listen(config.port, () => {
-    console.log(`server started at http://localhost:${chalk.green(config.port)}`);
-  });
+  try {
+    await mongoDbConnect();
+    app.listen(config.port, () => {
+      console.log(`server started at http://localhost:${chalk.green(config.port)}`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 start();

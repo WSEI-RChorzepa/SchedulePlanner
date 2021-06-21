@@ -1,0 +1,18 @@
+button {
+  background-color: transparent;
+  border: 1px transparent;
+  padding: 1rem 2rem;
+  background-color: var(--dark-gray);
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 300;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.primary {
+    background: rgb(5, 236, 254);
+    background: linear-gradient(147deg, rgba(5, 236, 254, 1) 0%, rgba(77, 174, 254, 1) 100%);
+  }
+}

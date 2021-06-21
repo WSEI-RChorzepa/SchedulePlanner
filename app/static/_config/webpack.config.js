@@ -6,6 +6,9 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     global: path.join(__dirname, '../global.ts'),
+    main: [path.join(__dirname, '../scss/layouts/main.scss')],
+    signin: [path.join(__dirname, '../scss/layouts/signin.scss')],
+    signup: [path.join(__dirname, '../scss/layouts/signup.scss')],
   },
   output: {
     filename: '[name].js',
@@ -21,6 +24,14 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },
