@@ -14,7 +14,7 @@ body {
   font-family: 'Roboto';
   font-weight: 300;
   color: var(--font-color);
-  background: var(--light-gray);
+  background-color: #fff;
 }
 
 footer {
@@ -33,5 +33,35 @@ footer {
     font-family: 'Montserrat';
     font-size: 0.8rem;
     font-weight: 400;
+  }
+}
+
+.col {
+  display: flex;
+  grid-gap: 10px;
+}
+
+.group {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 0.5rem 1rem;
+  }
+
+  span.fa {
+    color: var(--gray);
+    margin-right: 5px;
+    transition: color 300ms ease-in-out;
+  }
+
+  :hover {
+    cursor: pointer;
   }
 }

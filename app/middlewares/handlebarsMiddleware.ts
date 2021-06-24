@@ -6,8 +6,23 @@ import config from '../config';
 const hbs = exphbs.create({
   helpers: {
     toJSON: function (value: any) {
-      console.log(value);
       return JSON.stringify(value, null, 2);
+    },
+    toRoleDescription: function (value: number) {
+      switch (value) {
+        case 2:
+          return 'Uninitialized';
+        case 4:
+          return 'Consultant';
+        case 8:
+          return 'Team leader';
+        case 16:
+          return 'Supervisor';
+        case 1024:
+          return 'Administrator';
+        default:
+          return 'Uninitialized';
+      }
     },
   },
 });

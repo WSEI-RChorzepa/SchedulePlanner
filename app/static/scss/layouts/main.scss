@@ -12,7 +12,11 @@ header.header {
   align-items: center;
   padding: 0 2rem;
 
+  display: grid;
+  grid-template-columns: 155px 1fr 1fr;
+
   .brand {
+    grid-column: 1;
     color: #fff;
 
     span {
@@ -28,8 +32,13 @@ header.header {
   }
 
   nav {
+    grid-column: 2;
     margin-left: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
     ul {
+      grid-column: 1;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -54,6 +63,44 @@ header.header {
           &.active {
             background-color: var(--dark-gray);
           }
+        }
+      }
+    }
+  }
+
+  .user-information {
+    grid-column: 3;
+    text-align: right;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      li {
+        color: #fff;
+        font-family: 'Montserrat';
+        font-weight: 300;
+        font-size: 0.8rem;
+        margin-right: 0.5rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover a {
+          cursor: pointer;
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        a {
+          display: block;
+          padding: 1rem;
+          color: #fff;
+          text-decoration: none;
+          font-family: 'Montserrat';
+          font-weight: 400;
+          font-size: 0.8rem;
         }
       }
     }

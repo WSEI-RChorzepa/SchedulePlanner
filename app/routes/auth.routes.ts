@@ -1,14 +1,13 @@
 import express from 'express';
-import SignInController from '../controllers/signin.controller';
-import SignUpController from '../controllers/signup.controller';
+import AuthController from '../controllers/auth.controller';
 
-const signInController = new SignInController();
-const signUpController = new SignUpController();
-
+const controller = new AuthController();
 const router = express.Router();
 
-router.route('/signin').get(signInController.view).post(signInController.signin);
+router.route('/signin').get(controller.views.signin).post(controller.signin);
 
-router.route('/signup').get(signUpController.view).post(signUpController.signup);
+router.route('/signup').get(controller.views.signup).post(controller.signup);
+
+router.route('/signout').get(controller.signout);
 
 export default router;

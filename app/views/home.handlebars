@@ -1,7 +1,39 @@
-<h1>Home page</h1>
+<link rel="stylesheet" href="/home.css">
 
-<div>
-    {{page}}
+<div id="app">
+    <div>
+        <calendar-component id="calendar-component"></calendar-component>
+
+        <form>
+
+             <div class="group">
+                    <label for="email"><i class="far fa-calendar-plus"></i> Date</label>
+                    <input placeholder="Select date" type="text" name="date" autocomplete="off" />
+                </div>
+
+            <div class="col">
+                <div class="group">
+                    <label for="email"><span class="fas fa-hourglass-start"></span> From</label>
+                    <input placeholder="Select hour" type="number" name="from" autocomplete="off" />
+                </div>
+
+                <div class="group">
+                    <label for="email"><span class="fas fa-hourglass-end"></span> To</label>
+                    <input placeholder="Select hour" type="number" name="to" autocomplete="off" />
+                </div>
+            </div>
+
+            <button class="button primary large" type="submit"> <span class="fa fa-plus"></span> Add availability</button>
+        </form>
+
+    </div>
+    <div>
+        <div class="empty">
+              <i class="icon fas fa-inbox"></i>
+            <p class="message">Yor availability is empty</p>
+        </div>
+    </div>
 </div>
 
-<div>{{user.email}}</div>
+<script src="/webcomponents.js"></script>
+<script src="/home.js"></script>

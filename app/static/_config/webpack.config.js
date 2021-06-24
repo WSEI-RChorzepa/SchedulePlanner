@@ -9,6 +9,11 @@ module.exports = {
     main: [path.join(__dirname, '../scss/layouts/main.scss')],
     signin: [path.join(__dirname, '../scripts/signin/')],
     signup: [path.join(__dirname, '../scss/layouts/signup.scss')],
+    home: [path.join(__dirname, '../scripts/home/index.ts')],
+    webcomponents: [
+      './node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+      './node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
+    ],
   },
   output: {
     filename: '[name].js',
@@ -32,6 +37,10 @@ module.exports = {
             loader: 'file-loader',
           },
         ],
+      },
+      {
+        test: /\.handlebars$/,
+        loader: 'handlebars-loader',
       },
     ],
   },
