@@ -1,3 +1,4 @@
+select,
 input {
   border: 1px solid var(--light-gray);
   padding: 0.3rem 0.4rem;
@@ -13,4 +14,8 @@ input {
     color: var(--gray);
     font-size: 12px;
   }
+}
+
+option[disabled] {
+  color: var(--light-gray);
 }

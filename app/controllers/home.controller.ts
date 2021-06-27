@@ -5,7 +5,7 @@ import { Controller } from '../types';
 import IUser from '../models/User';
 
 class HomeController {
-  @auth()
+  // @auth()
   index(req: Request, res: Response, next: NextFunction) {
     const viewData: Controller.IViewData = {
       active: {

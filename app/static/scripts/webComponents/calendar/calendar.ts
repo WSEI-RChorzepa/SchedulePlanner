@@ -69,6 +69,11 @@ class CalendarComponent extends HTMLElement {
     this.elements.grid().innerHTML = '';
   };
 
+  public setActive = (element: HTMLButtonElement) => {
+    Array.from(this.elements.grid().querySelectorAll('button')).forEach(button => button.classList.remove('active'));
+    element.classList.add('active');
+  };
+
   private renderGrid = (): void => {
     const firstDayOfMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
     const lastDayOfMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 0);
